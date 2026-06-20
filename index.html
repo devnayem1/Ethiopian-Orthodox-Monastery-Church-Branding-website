@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gishen Mariam Ethiopian Orthodox Tewahedo Monastery & Church</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        gold: '#C9A227',
+        'gold-light': '#E8C547',
+        'gold-dark': '#A07A10',
+        'deep-red': '#7A1F1F',
+        'deep-red-light': '#9B3030',
+        emerald: '#1F6B4D',
+        'royal-blue': '#1B3B6F',
+        ivory: '#F8F4EC',
+        'ivory-dark': '#EDE7D9',
+        charcoal: '#2C2C2C',
+        'charcoal-light': '#444444',
+      },
+      fontFamily: {
+        cinzel: ['Cinzel', 'serif'],
+        cormorant: ['Cormorant Garamond', 'serif'],
+        inter: ['Inter', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+  :root {
+    --gold: #C9A227;
+    --gold-light: #E8C547;
+    --deep-red: #7A1F1F;
+    --emerald: #1F6B4D;
+    --royal-blue: #1B3B6F;
+    --ivory: #F8F4EC;
+    --charcoal: #2C2C2C;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--ivory); color: var(--charcoal); overflow-x: hidden; }
+
+  /* ── Orthodox Cross SVG decoration ── */
+  .cross-divider {
+    display: flex; align-items: center; gap: 16px;
+    margin: 0 auto 2rem;
+  }
+  .cross-divider::before, .cross-divider::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  /* ── Sacred border ── */
+  .sacred-border {
+    border: 1px solid var(--gold);
+    box-shadow: 0 0 0 4px rgba(201,162,39,0.08), inset 0 0 0 4px rgba(201,162,39,0.08);
+  }
+
+  /* ── Manuscript corner ornament ── */
+  .corner-ornament {
+    position: relative;
+  }
+  .corner-ornament::before, .corner-ornament::after {
+    content: '';
+    position: absolute;
+    width: 28px; height: 28px;
+    border-color: var(--gold);
+    border-style: solid;
+    opacity: 0.6;
+  }
+  .corner-ornament::before { top: 8px; left: 8px; border-width: 2px 0 0 2px; }
+  .corner-ornament::after  { bottom: 8px; right: 8px; border-width: 0 2px 2px 0; }
+
+  /* ── Navbar ── */
+  #navbar {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    transition: all 0.4s ease;
+    background: rgba(27,59,111,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,162,39,0.3);
+  }
+  #navbar.scrolled {
+    background: rgba(20,40,80,0.99);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+  }
+  .nav-link {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: rgba(248,244,236,0.82);
+    text-transform: uppercase;
+    padding: 6px 0;
+    position: relative;
+    transition: color 0.3s;
+  }
+  .nav-link::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 1px; background: var(--gold);
+    transition: width 0.3s;
+  }
+  .nav-link:hover { color: var(--gold); }
+  .nav-link:hover::after { width: 100%; }
+
+  /* ── Hero ── */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  #hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=1920&q=85');
+    background-size: cover; background-position: center;
+    transform: scale(1.05);
+    transition: transform 8s ease;
+  }
+  #hero-bg.zoomed { transform: scale(1); }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg,
+      rgba(27,59,111,0.82) 0%,
+      rgba(122,31,31,0.65) 50%,
+      rgba(10,20,40,0.88) 100%);
+  }
+  .gold-rays {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(201,162,39,0.12) 0%, transparent 70%);
+  }
+  .hero-content { position: relative; z-index: 2; text-align: center; padding: 2rem; }
+
+  /* Ethiopian Cross SVG */
+  .eth-cross-svg { filter: drop-shadow(0 0 12px rgba(201,162,39,0.6)); }
+
+  /* ── Section headings ── */
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--deep-red);
+    letter-spacing: 0.06em;
+  }
+  .section-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: #666;
+    font-size: 1.15rem;
+  }
+
+  /* ── Cards ── */
+  .mission-card {
+    background: #fff;
+    border-top: 3px solid var(--gold);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+  }
+  .mission-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(122,31,31,0.14);
+  }
+  .mission-card img { transition: transform 0.5s; }
+  .mission-card:hover img { transform: scale(1.05); }
+
+  /* ── Timeline ── */
+  .timeline-line {
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--deep-red), var(--royal-blue));
+  }
+  .timeline-dot {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── Donation ── */
+  .donation-tab { transition: all 0.3s; cursor: pointer; font-family: 'Cinzel', serif; }
+  .donation-tab.active {
+    background: var(--deep-red); color: #fff;
+    box-shadow: 0 4px 15px rgba(122,31,31,0.3);
+  }
+  .amount-card {
+    cursor: pointer; transition: all 0.3s;
+    border: 2px solid #e2d9c8;
+    background: #fff;
+    font-family: 'Cinzel', serif;
+  }
+  .amount-card:hover, .amount-card.selected {
+    border-color: var(--gold);
+    background: rgba(201,162,39,0.06);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(201,162,39,0.2);
+  }
+  .progress-bar-inner {
+    height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 999px;
+    transition: width 2s cubic-bezier(0.4,0,0.2,1);
+    position: relative; overflow: hidden;
+  }
+  .progress-bar-inner::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 2.5s infinite;
+  }
+  @keyframes shimmer { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
+
+  /* ── Gallery ── */
+  .gallery-item { overflow: hidden; cursor: pointer; position: relative; }
+  .gallery-item img { transition: transform 0.5s; width: 100%; height: 220px; object-fit: cover; }
+  .gallery-item:hover img { transform: scale(1.1); }
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: rgba(27,59,111,0.7);
+    opacity: 0; transition: opacity 0.3s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+  /* ── Lightbox ── */
+  #lightbox {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.92);
+    display: none; align-items: center; justify-content: center;
+  }
+  #lightbox.open { display: flex; }
+  #lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border: 2px solid var(--gold); }
+
+  /* ── Announcement card ── */
+  .ann-card { border-left: 4px solid var(--gold); background: #fff; transition: box-shadow 0.3s; }
+  .ann-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+
+  /* ── Testimonial ── */
+  .testimonial-track { display: flex; transition: transform 0.6s ease; }
+  .testimonial-slide { flex: 0 0 100%; }
+
+  /* ── Counter ── */
+  .counter-num {
+    font-family: 'Cinzel', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  /* ── Mobile menu ── */
+  #mobile-menu { display: none; }
+  #mobile-menu.open { display: block; }
+
+  /* ── Scroll reveal ── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── Manuscript border pattern ── */
+  .manuscript-border {
+    border: 2px solid var(--gold);
+    position: relative;
+  }
+  .manuscript-border::before {
+    content: '✦';
+    position: absolute; top: -12px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--ivory); padding: 0 8px;
+    color: var(--gold); font-size: 1.2rem;
+  }
+
+  /* ── Orthodox pattern bg ── */
+  .orthodox-pattern {
+    background-color: var(--royal-blue);
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(201,162,39,0.05) 0px,
+      rgba(201,162,39,0.05) 1px,
+      transparent 1px,
+      transparent 20px
+    ), repeating-linear-gradient(
+      -45deg,
+      rgba(201,162,39,0.05) 0px,
+      rgba(201,162,39,0.05) 1px,
+      transparent 1px,
+      transparent 20px
+    );
+  }
+
+  .donate-btn {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+    background-size: 200% 200%;
+    animation: goldShift 3s ease infinite;
+    color: var(--charcoal);
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .donate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(201,162,39,0.5);
+  }
+  @keyframes goldShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+
+  .section-bg-ivory { background: var(--ivory); }
+  .section-bg-white { background: #fff; }
+  .section-bg-dark { background: var(--charcoal); }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between" style="height:70px;">
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center gap-3">
+      <svg class="eth-cross-svg" width="34" height="34" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="34" y="2" width="12" height="76" rx="3" fill="#C9A227"/>
+        <rect x="2" y="28" width="76" height="12" rx="3" fill="#C9A227"/>
+        <rect x="28" y="16" width="8" height="8" rx="1" fill="#C9A227" opacity="0.6"/>
+        <rect x="44" y="16" width="8" height="8" rx="1" fill="#C9A227" opacity="0.6"/>
+        <rect x="28" y="56" width="8" height="8" rx="1" fill="#C9A227" opacity="0.6"/>
+        <rect x="44" y="56" width="8" height="8" rx="1" fill="#C9A227" opacity="0.6"/>
+        <rect x="16" y="28" width="8" height="8" rx="1" fill="#C9A227" opacity="0.6"/>
+        <rect x="56" y="28" width="8" height="8" rx="1" fill="#C9A227" opacity="0.6"/>
+        <rect x="16" y="44" width="8" height="8" rx="1" fill="#C9A227" opacity="0.6"/>
+        <rect x="56" y="44" width="8" height="8" rx="1" fill="#C9A227" opacity="0.6"/>
+      </svg>
+      <div>
+        <div class="text-gold font-cinzel text-sm font-bold tracking-widest leading-none">GISHEN MARIAM</div>
+        <div class="text-ivory/60 font-inter text-xs tracking-wide mt-0.5">Ethiopian Orthodox Monastery</div>
+      </div>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden lg:flex items-center gap-7">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#mission" class="nav-link">Mission</a>
+      <a href="#history" class="nav-link">History</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+      <a href="#donate" class="nav-link">Donations</a>
+      <a href="#announcements" class="nav-link">News</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#donate" class="donate-btn px-5 py-2.5 rounded text-sm ml-2">Support Us</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="hamburger" class="lg:hidden text-gold p-2" onclick="toggleMenu()">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="lg:hidden bg-royal-blue/98 border-t border-gold/20">
+    <div class="flex flex-col px-6 py-4 gap-4">
+      <a href="#about" class="nav-link" onclick="toggleMenu()">About</a>
+      <a href="#mission" class="nav-link" onclick="toggleMenu()">Mission</a>
+      <a href="#history" class="nav-link" onclick="toggleMenu()">History</a>
+      <a href="#gallery" class="nav-link" onclick="toggleMenu()">Gallery</a>
+      <a href="#donate" class="nav-link" onclick="toggleMenu()">Donations</a>
+      <a href="#announcements" class="nav-link" onclick="toggleMenu()">News</a>
+      <a href="#contact" class="nav-link" onclick="toggleMenu()">Contact</a>
+      <a href="#donate" class="donate-btn text-center px-5 py-3 rounded text-sm mt-2">Support the Mission</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section id="hero">
+  <div id="hero-bg" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1544966503-7cc2ac882dce?w=1920)'"></div>
+  <div class="hero-overlay"></div>
+  <div class="gold-rays"></div>
+
+  <div class="hero-content max-w-4xl mx-auto">
+    <!-- Ethiopian Cross -->
+    <div class="flex justify-center mb-6">
+      <svg class="eth-cross-svg" width="72" height="72" viewBox="0 0 80 80" fill="none">
+        <rect x="34" y="2" width="12" height="76" rx="3" fill="#C9A227"/>
+        <rect x="2" y="28" width="76" height="12" rx="3" fill="#C9A227"/>
+        <rect x="28" y="16" width="8" height="8" rx="2" fill="#C9A227" opacity="0.7"/>
+        <rect x="44" y="16" width="8" height="8" rx="2" fill="#C9A227" opacity="0.7"/>
+        <rect x="28" y="56" width="8" height="8" rx="2" fill="#C9A227" opacity="0.7"/>
+        <rect x="44" y="56" width="8" height="8" rx="2" fill="#C9A227" opacity="0.7"/>
+        <rect x="16" y="28" width="8" height="8" rx="2" fill="#C9A227" opacity="0.7"/>
+        <rect x="56" y="28" width="8" height="8" rx="2" fill="#C9A227" opacity="0.7"/>
+        <rect x="16" y="44" width="8" height="8" rx="2" fill="#C9A227" opacity="0.7"/>
+        <rect x="56" y="44" width="8" height="8" rx="2" fill="#C9A227" opacity="0.7"/>
+      </svg>
+    </div>
+
+    <p class="font-cinzel text-gold tracking-[0.25em] text-xs uppercase mb-4">ጌሼን ማርያም · Shasta County, California</p>
+
+    <h1 class="font-cinzel text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style="text-shadow:0 2px 30px rgba(0,0,0,0.6)">
+      Gishen Mariam<br>
+      <span class="text-gold">Ethiopian Orthodox</span><br>
+      Monastery & Church
+    </h1>
+
+    <p class="font-cormorant text-ivory/90 text-xl md:text-2xl italic mb-8 max-w-2xl mx-auto leading-relaxed">
+      A sacred house of prayer, heritage, and community service — rooted in the ancient tradition of the Ethiopian Orthodox Tewahedo Church.
+    </p>
+
+    <!-- Gold border divider -->
+    <div class="flex items-center justify-center gap-4 mb-8">
+      <div style="height:1px;width:60px;background:var(--gold);opacity:0.6"></div>
+      <span class="text-gold text-lg">✦</span>
+      <div style="height:1px;width:60px;background:var(--gold);opacity:0.6"></div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#donate" class="donate-btn px-10 py-4 rounded text-base uppercase tracking-widest">
+        Support the Mission
+      </a>
+      <a href="#history" class="font-cinzel text-sm uppercase tracking-widest px-10 py-4 rounded border border-gold/60 text-ivory hover:bg-gold/10 transition-all duration-300">
+        Explore Our History
+      </a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="mt-16 flex flex-col items-center gap-2 animate-bounce">
+      <div class="w-px h-10 bg-gold/50"></div>
+      <svg width="16" height="16" fill="none" stroke="#C9A227" stroke-width="2"><path d="M2 5l6 6 6-6"/></svg>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     ABOUT / INTRO STRIP
+══════════════════════════════════════════ -->
+<section id="about" class="py-20 section-bg-ivory">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <p class="font-cinzel text-gold text-xs tracking-[0.3em] uppercase mb-3">Welcome</p>
+        <h2 class="section-title text-4xl md:text-5xl leading-tight mb-6">
+          A New Sacred<br>Home in California
+        </h2>
+        <div class="flex items-center gap-4 mb-6">
+          <div style="height:2px;width:40px;background:var(--gold)"></div>
+          <span class="text-gold text-sm">✦</span>
+        </div>
+        <p class="font-cormorant text-xl text-charcoal/80 italic leading-relaxed mb-5">
+          "From the ancient highlands of Ethiopia to the mountains of Northern California — faith takes root, and community flourishes."
+        </p>
+        <p class="text-charcoal/70 leading-relaxed mb-5">
+          Gishen Mariam Ethiopian Orthodox Tewahedo Monastery and Church has been formally approved by the greater Ethiopian Orthodox Tewahedo Church in Sacramento. We are now establishing our early presence in Shasta County, California — a sacred home for worship, monastic life, cultural preservation, and community service.
+        </p>
+        <p class="text-charcoal/70 leading-relaxed mb-8">
+          Our property includes an existing church building with long-term vision for spiritual retreats, wellness programs, recovery support, and cultural programming for all who seek peace, healing, and spiritual nourishment.
+        </p>
+        <a href="#donate" class="donate-btn inline-block px-8 py-3.5 rounded text-sm uppercase tracking-widest">
+          Join Our Founding Supporters
+        </a>
+      </div>
+
+      <div class="reveal grid grid-cols-2 gap-4">
+        <div class="rounded-lg overflow-hidden sacred-border" style="height:260px;">
+          <img src="https://images.unsplash.com/photo-1519817914152-22d216bb9170?w=600&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600'"
+               alt="Orthodox Church" class="w-full h-full object-cover">
+        </div>
+        <div class="rounded-lg overflow-hidden sacred-border mt-8" style="height:260px;">
+          <img src="https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?w=600&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600'"
+               alt="Ethiopian Heritage" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     MISSION SECTION
+══════════════════════════════════════════ -->
+<section id="mission" class="py-20 section-bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14 reveal">
+      <p class="font-cinzel text-gold text-xs tracking-[0.3em] uppercase mb-3">Our Calling</p>
+      <h2 class="section-title text-4xl md:text-5xl mb-4">Four Pillars of Our Mission</h2>
+      <p class="section-subtitle max-w-xl mx-auto">We are called to worship, serve, preserve, and restore — for all generations.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card 1 -->
+      <div class="mission-card rounded-lg reveal">
+        <div class="overflow-hidden" style="height:180px;">
+          <img src="https://images.unsplash.com/photo-1596538405990-05e5e4f5cd54?w=500&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1519817914152-22d216bb9170?w=500'"
+               alt="Worship" class="w-full h-full object-cover">
+        </div>
+        <div class="p-5">
+          <div class="text-gold text-2xl mb-2">✝</div>
+          <h3 class="font-cinzel text-deep-red text-base font-bold mb-2 uppercase tracking-wide">Sacred Worship</h3>
+          <p class="text-charcoal/70 text-sm leading-relaxed">
+            Weekly liturgies, feast day celebrations, and daily prayers in the Ge'ez tradition — keeping the ancient rites alive on American soil.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="mission-card rounded-lg reveal" style="transition-delay:0.1s">
+        <div class="overflow-hidden" style="height:180px;">
+          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=500'"
+               alt="Monastic Life" class="w-full h-full object-cover">
+        </div>
+        <div class="p-5">
+          <div class="text-gold text-2xl mb-2">🕊</div>
+          <h3 class="font-cinzel text-deep-red text-base font-bold mb-2 uppercase tracking-wide">Monastic Life</h3>
+          <p class="text-charcoal/70 text-sm leading-relaxed">
+            A place of contemplation, fasting, and devotion for monks and the faithful — modeled on Ethiopia's ancient monasteries.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="mission-card rounded-lg reveal" style="transition-delay:0.2s">
+        <div class="overflow-hidden" style="height:180px;">
+          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=500&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500'"
+               alt="Community Service" class="w-full h-full object-cover">
+        </div>
+        <div class="p-5">
+          <div class="text-gold text-2xl mb-2">❤</div>
+          <h3 class="font-cinzel text-deep-red text-base font-bold mb-2 uppercase tracking-wide">Community Service</h3>
+          <p class="text-charcoal/70 text-sm leading-relaxed">
+            Serving at-risk individuals through wellness programs, recovery support, food assistance, and spiritual counseling.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="mission-card rounded-lg reveal" style="transition-delay:0.3s">
+        <div class="overflow-hidden" style="height:180px;">
+          <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=500&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500'"
+               alt="Cultural Heritage" class="w-full h-full object-cover">
+        </div>
+        <div class="p-5">
+          <div class="text-gold text-2xl mb-2">🌿</div>
+          <h3 class="font-cinzel text-deep-red text-base font-bold mb-2 uppercase tracking-wide">Cultural Heritage</h3>
+          <p class="text-charcoal/70 text-sm leading-relaxed">
+            Preserving the Ge'ez language, Orthodox music, iconographic art, and the living traditions of Ethiopian Christianity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     HISTORY / STORY SECTION
+══════════════════════════════════════════ -->
+<section id="history" style="background:linear-gradient(180deg, #F8F4EC 0%, #EDE7D9 100%);" class="py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-14 reveal">
+      <p class="font-cinzel text-gold text-xs tracking-[0.3em] uppercase mb-3">Our Story</p>
+      <h2 class="section-title text-4xl md:text-5xl mb-4">Rooted in Ancient Faith</h2>
+      <p class="section-subtitle max-w-xl mx-auto">From the highlands of Lalibela to the mountains of Northern California — a living tradition continues.</p>
+    </div>
+
+    <!-- Image strip -->
+    <div class="grid grid-cols-3 gap-3 mb-14 reveal">
+      <div class="rounded-lg overflow-hidden sacred-border" style="height:200px;">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600'"
+             alt="Ethiopian landscape" class="w-full h-full object-cover">
+      </div>
+      <div class="rounded-lg overflow-hidden sacred-border" style="height:200px;">
+        <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?w=600'"
+             alt="Orthodox Church interior" class="w-full h-full object-cover">
+      </div>
+      <div class="rounded-lg overflow-hidden sacred-border" style="height:200px;">
+        <img src="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1519817914152-22d216bb9170?w=600'"
+             alt="Mountains California" class="w-full h-full object-cover">
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative pl-10 reveal">
+      <div class="timeline-line absolute left-4 top-0 bottom-0"></div>
+
+      <div class="mb-10">
+        <div class="flex items-start gap-5">
+          <div class="timeline-dot mt-1.5 -ml-8"></div>
+          <div class="bg-white rounded-lg p-6 flex-1 sacred-border shadow-sm">
+            <span class="font-cinzel text-gold text-xs tracking-widest uppercase">Ancient Roots</span>
+            <h3 class="font-cinzel text-deep-red text-lg font-bold mt-1 mb-2">The Ethiopian Orthodox Tewahedo Church</h3>
+            <p class="text-charcoal/70 text-sm leading-relaxed">
+              One of the world's oldest Christian traditions, the Ethiopian Orthodox Tewahedo Church traces its origins to the 4th century AD and the baptism of the Ethiopian eunuch described in Acts 8. For over 1,700 years, Ethiopian Christians have maintained their unique liturgical tradition, sacred music, and monastic heritage.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-10">
+        <div class="flex items-start gap-5">
+          <div class="timeline-dot mt-1.5 -ml-8"></div>
+          <div class="bg-white rounded-lg p-6 flex-1 sacred-border shadow-sm">
+            <span class="font-cinzel text-gold text-xs tracking-widest uppercase">The Vision</span>
+            <h3 class="font-cinzel text-deep-red text-lg font-bold mt-1 mb-2">A Sacred Gathering Place in California</h3>
+            <p class="text-charcoal/70 text-sm leading-relaxed">
+              Inspired by faith and the needs of the Ethiopian Orthodox community in Northern California, a group of faithful believers and clergy came together with a shared vision: to establish a monastery and church that would serve as a spiritual home, cultural anchor, and center of community life in Shasta County.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-10">
+        <div class="flex items-start gap-5">
+          <div class="timeline-dot mt-1.5 -ml-8"></div>
+          <div class="bg-white rounded-lg p-6 flex-1 sacred-border shadow-sm">
+            <span class="font-cinzel text-gold text-xs tracking-widest uppercase">Official Formation</span>
+            <h3 class="font-cinzel text-deep-red text-lg font-bold mt-1 mb-2">Approved by the Greater Church in Sacramento</h3>
+            <p class="text-charcoal/70 text-sm leading-relaxed">
+              After faithful prayer, planning, and proper canonical process, Gishen Mariam Ethiopian Orthodox Tewahedo Monastery & Church has received formal approval from the greater Ethiopian Orthodox Tewahedo Church in Sacramento. This marks a historic moment for our community.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex items-start gap-5">
+          <div class="timeline-dot mt-1.5 -ml-8" style="background:var(--emerald)"></div>
+          <div class="bg-white rounded-lg p-6 flex-1 sacred-border shadow-sm">
+            <span class="font-cinzel text-emerald text-xs tracking-widest uppercase">Today & Tomorrow</span>
+            <h3 class="font-cinzel text-deep-red text-lg font-bold mt-1 mb-2">Building Our Sacred Home</h3>
+            <p class="text-charcoal/70 text-sm leading-relaxed">
+              With an existing church property in Shasta County, we are now in the vital early formation stage — establishing our public presence, building our community, and raising the funds needed to renovate, develop, and sustain this sacred place for generations to come. Your support makes this holy work possible.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     MONASTERY VISION
+══════════════════════════════════════════ -->
+<section id="vision" class="py-20 section-bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14 reveal">
+      <p class="font-cinzel text-gold text-xs tracking-[0.3em] uppercase mb-3">Looking Forward</p>
+      <h2 class="section-title text-4xl md:text-5xl mb-4">Our Vision for the Future</h2>
+      <p class="section-subtitle max-w-xl mx-auto">Gishen Mariam will grow into a comprehensive center of faith, healing, culture, and community service.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Vision 1 -->
+      <div class="rounded-lg overflow-hidden reveal" style="box-shadow:0 4px 20px rgba(0,0,0,0.08)">
+        <div style="height:200px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1476611338391-6f395a0dd82e?w=500&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500'"
+               alt="Spiritual Retreat" class="w-full h-full object-cover">
+        </div>
+        <div class="p-5 border border-t-0 border-gold/20">
+          <div class="text-gold text-xl mb-2">🏔</div>
+          <h3 class="font-cinzel text-deep-red font-bold text-sm uppercase tracking-wide mb-2">Spiritual Retreat Center</h3>
+          <p class="text-charcoal/70 text-sm leading-relaxed">A sanctuary for silent retreats, prayer weeks, and spiritual direction for the faithful seeking deeper communion with God.</p>
+        </div>
+      </div>
+
+      <!-- Vision 2 -->
+      <div class="rounded-lg overflow-hidden reveal" style="box-shadow:0 4px 20px rgba(0,0,0,0.08);transition-delay:0.1s">
+        <div style="height:200px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=500'"
+               alt="Wellness Programs" class="w-full h-full object-cover">
+        </div>
+        <div class="p-5 border border-t-0 border-gold/20">
+          <div class="text-gold text-xl mb-2">🌿</div>
+          <h3 class="font-cinzel text-deep-red font-bold text-sm uppercase tracking-wide mb-2">Wellness & Recovery</h3>
+          <p class="text-charcoal/70 text-sm leading-relaxed">Holistic wellness and recovery programs supporting at-risk individuals through faith-based healing, counseling, and community care.</p>
+        </div>
+      </div>
+
+      <!-- Vision 3 -->
+      <div class="rounded-lg overflow-hidden reveal" style="box-shadow:0 4px 20px rgba(0,0,0,0.08);transition-delay:0.2s">
+        <div style="height:200px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500'"
+               alt="Community Outreach" class="w-full h-full object-cover">
+        </div>
+        <div class="p-5 border border-t-0 border-gold/20">
+          <div class="text-gold text-xl mb-2">🤝</div>
+          <h3 class="font-cinzel text-deep-red font-bold text-sm uppercase tracking-wide mb-2">Community Outreach</h3>
+          <p class="text-charcoal/70 text-sm leading-relaxed">Serving our neighbors regardless of background — food drives, family support, youth mentorship, and partnerships with local organizations.</p>
+        </div>
+      </div>
+
+      <!-- Vision 4 -->
+      <div class="rounded-lg overflow-hidden reveal" style="box-shadow:0 4px 20px rgba(0,0,0,0.08);transition-delay:0.1s">
+        <div style="height:200px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=500&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=500'"
+               alt="Cultural Preservation" class="w-full h-full object-cover">
+        </div>
+        <div class="p-5 border border-t-0 border-gold/20">
+          <div class="text-gold text-xl mb-2">🎶</div>
+          <h3 class="font-cinzel text-deep-red font-bold text-sm uppercase tracking-wide mb-2">Cultural Programming</h3>
+          <p class="text-charcoal/70 text-sm leading-relaxed">Celebrating and preserving Ethiopian heritage through language classes, traditional music, iconography workshops, and cultural festivals.</p>
+        </div>
+      </div>
+
+      <!-- Vision 5 -->
+      <div class="rounded-lg overflow-hidden reveal" style="box-shadow:0 4px 20px rgba(0,0,0,0.08);transition-delay:0.2s">
+        <div style="height:200px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=500'"
+               alt="Education Center" class="w-full h-full object-cover">
+        </div>
+        <div class="p-5 border border-t-0 border-gold/20">
+          <div class="text-gold text-xl mb-2">📖</div>
+          <h3 class="font-cinzel text-deep-red font-bold text-sm uppercase tracking-wide mb-2">Theological Education</h3>
+          <p class="text-charcoal/70 text-sm leading-relaxed">Classes in Ge'ez, Orthodox theology, liturgical studies, and Ethiopian church history — nurturing the next generation of leaders.</p>
+        </div>
+      </div>
+
+      <!-- Vision 6 — Kidus Yared Hall -->
+      <div class="rounded-lg overflow-hidden reveal" style="box-shadow:0 4px 20px rgba(0,0,0,0.08);transition-delay:0.3s;background:linear-gradient(135deg,#1B3B6F,#7A1F1F);">
+        <div style="height:200px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1470019693664-1d202d2c0907?w=500&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=500'"
+               alt="Music Hall" class="w-full h-full object-cover opacity-50">
+        </div>
+        <div class="p-5">
+          <div class="text-gold text-xl mb-2">🎵</div>
+          <h3 class="font-cinzel text-gold font-bold text-sm uppercase tracking-wide mb-2">Kidus Yared Hall</h3>
+          <p class="text-ivory/80 text-sm leading-relaxed">Named for Saint Yared, father of Ethiopian sacred music — a future music center honoring the living tradition of Ethiopian liturgical song and sacred arts.</p>
+          <span class="inline-block mt-3 text-xs font-cinzel text-gold/70 uppercase tracking-widest border border-gold/30 px-3 py-1 rounded">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     DONATION SECTION
+══════════════════════════════════════════ -->
+<section id="donate" class="py-20" style="background:linear-gradient(160deg,#1B3B6F 0%,#7A1F1F 60%,#2C2C2C 100%);">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <p class="font-cinzel text-gold text-xs tracking-[0.3em] uppercase mb-3">Give & Be Part of History</p>
+      <h2 class="font-cinzel text-ivory text-4xl md:text-5xl font-bold mb-4">Support the Mission</h2>
+      <p class="font-cormorant text-ivory/80 text-xl italic">Every gift, great or small, helps build a sacred home for generations to come.</p>
+    </div>
+
+    <!-- Progress -->
+    <div class="bg-white/10 backdrop-blur rounded-xl p-6 mb-10 reveal">
+      <div class="flex justify-between items-end mb-3">
+        <div>
+          <div class="text-gold font-cinzel text-3xl font-bold" id="raised-amount">$185,000</div>
+          <div class="text-ivory/60 text-sm font-inter">raised toward our goal</div>
+        </div>
+        <div class="text-right">
+          <div class="text-ivory/80 font-cinzel text-xl">$500,000</div>
+          <div class="text-ivory/60 text-sm">Campaign Goal</div>
+        </div>
+      </div>
+      <div class="w-full h-3 bg-white/20 rounded-full overflow-hidden">
+        <div class="progress-bar-inner" id="progress-bar" style="width:0%"></div>
+      </div>
+      <div class="text-ivory/60 text-xs mt-2 text-right font-inter">37% funded · 284 donors</div>
+    </div>
+
+    <!-- Two images -->
+    <div class="grid grid-cols-2 gap-4 mb-10 reveal">
+      <div class="rounded-lg overflow-hidden" style="height:160px;">
+        <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=500&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=500'"
+             alt="Community gathering" class="w-full h-full object-cover">
+      </div>
+      <div class="rounded-lg overflow-hidden" style="height:160px;">
+        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500'"
+             alt="Volunteer support" class="w-full h-full object-cover">
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex flex-wrap gap-2 justify-center mb-8 reveal">
+      <button class="donation-tab active px-5 py-2.5 rounded border border-gold/40 text-sm text-ivory" onclick="switchTab(this,'one-time')">One-Time Gift</button>
+      <button class="donation-tab px-5 py-2.5 rounded border border-gold/40 text-sm text-ivory" onclick="switchTab(this,'monthly')">Monthly Support</button>
+      <button class="donation-tab px-5 py-2.5 rounded border border-gold/40 text-sm text-ivory" onclick="switchTab(this,'building')">Building Fund</button>
+      <button class="donation-tab px-5 py-2.5 rounded border border-gold/40 text-sm text-ivory" onclick="switchTab(this,'programs')">Community Programs</button>
+    </div>
+
+    <!-- Amount cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-8 reveal">
+      <div class="amount-card rounded-lg p-4 text-center" onclick="selectAmount(this,'25')">
+        <div class="font-cinzel text-xl font-bold text-deep-red">$25</div>
+        <div class="text-xs text-charcoal/60 mt-1 font-inter">Supporter</div>
+      </div>
+      <div class="amount-card rounded-lg p-4 text-center" onclick="selectAmount(this,'50')">
+        <div class="font-cinzel text-xl font-bold text-deep-red">$50</div>
+        <div class="text-xs text-charcoal/60 mt-1 font-inter">Friend</div>
+      </div>
+      <div class="amount-card rounded-lg p-4 text-center selected" onclick="selectAmount(this,'100')">
+        <div class="font-cinzel text-xl font-bold text-deep-red">$100</div>
+        <div class="text-xs text-charcoal/60 mt-1 font-inter">Benefactor</div>
+      </div>
+      <div class="amount-card rounded-lg p-4 text-center" onclick="selectAmount(this,'250')">
+        <div class="font-cinzel text-xl font-bold text-deep-red">$250</div>
+        <div class="text-xs text-charcoal/60 mt-1 font-inter">Patron</div>
+      </div>
+      <div class="amount-card rounded-lg p-4 text-center" onclick="selectAmount(this,'custom')">
+        <div class="font-cinzel text-xl font-bold text-deep-red">Other</div>
+        <div class="text-xs text-charcoal/60 mt-1 font-inter">Custom</div>
+      </div>
+    </div>
+
+    <!-- Custom amount input (hidden by default) -->
+    <div id="custom-input" class="hidden mb-6">
+      <input type="number" placeholder="Enter your amount ($)" 
+             class="w-full bg-white/10 border border-gold/40 text-ivory placeholder-ivory/40 rounded-lg px-5 py-3 font-cinzel text-lg focus:outline-none focus:border-gold">
+    </div>
+
+    <div class="text-center reveal">
+      <button class="donate-btn px-16 py-5 rounded-lg text-lg uppercase tracking-widest" onclick="handleDonate()">
+        Make a Sacred Gift ✦
+      </button>
+      <p class="text-ivory/40 text-xs mt-4 font-inter">Secure donation · Tax-deductible to the extent allowed by law</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PHOTO GALLERY
+══════════════════════════════════════════ -->
+<section id="gallery" class="py-20 section-bg-ivory">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-10 reveal">
+      <p class="font-cinzel text-gold text-xs tracking-[0.3em] uppercase mb-3">A Window Into Our World</p>
+      <h2 class="section-title text-4xl md:text-5xl mb-4">Photo Gallery</h2>
+      <p class="section-subtitle max-w-xl mx-auto">Glimpses of our sacred journey — worship, community, and the beauty of our heritage.</p>
+    </div>
+
+    <!-- Filter buttons -->
+    <div class="flex flex-wrap gap-2 justify-center mb-8 reveal">
+      <button class="gallery-filter active font-cinzel text-xs uppercase tracking-widest px-4 py-2 rounded border border-gold/40 text-deep-red bg-white" onclick="filterGallery('all',this)">All</button>
+      <button class="gallery-filter font-cinzel text-xs uppercase tracking-widest px-4 py-2 rounded border border-gold/20 text-charcoal/60 hover:border-gold/40 bg-white" onclick="filterGallery('church',this)">Church</button>
+      <button class="gallery-filter font-cinzel text-xs uppercase tracking-widest px-4 py-2 rounded border border-gold/20 text-charcoal/60 hover:border-gold/40 bg-white" onclick="filterGallery('worship',this)">Worship</button>
+      <button class="gallery-filter font-cinzel text-xs uppercase tracking-widest px-4 py-2 rounded border border-gold/20 text-charcoal/60 hover:border-gold/40 bg-white" onclick="filterGallery('heritage',this)">Heritage</button>
+      <button class="gallery-filter font-cinzel text-xs uppercase tracking-widest px-4 py-2 rounded border border-gold/20 text-charcoal/60 hover:border-gold/40 bg-white" onclick="filterGallery('community',this)">Community</button>
+      <button class="gallery-filter font-cinzel text-xs uppercase tracking-widest px-4 py-2 rounded border border-gold/20 text-charcoal/60 hover:border-gold/40 bg-white" onclick="filterGallery('monastic',this)">Monastic Life</button>
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3" id="gallery-grid">
+      <!-- Church -->
+      <div class="gallery-item rounded-lg" data-cat="church" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1519817914152-22d216bb9170?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=600'"
+             alt="Church exterior">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <div class="gallery-item rounded-lg" data-cat="church" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1596538405990-05e5e4f5cd54?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1519817914152-22d216bb9170?w=600'"
+             alt="Church building">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <!-- Worship -->
+      <div class="gallery-item rounded-lg" data-cat="worship" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1596538405990-05e5e4f5cd54?w=600'"
+             alt="Orthodox worship">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <div class="gallery-item rounded-lg" data-cat="worship" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=600'"
+             alt="Prayer and faith">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <!-- Heritage -->
+      <div class="gallery-item rounded-lg" data-cat="heritage" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600'"
+             alt="Ethiopian heritage">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <div class="gallery-item rounded-lg" data-cat="heritage" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?w=600'"
+             alt="Sacred tradition">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <div class="gallery-item rounded-lg" data-cat="heritage" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=600'"
+             alt="Sacred landscape">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <!-- Community -->
+      <div class="gallery-item rounded-lg" data-cat="community" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600'"
+             alt="Community service">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <div class="gallery-item rounded-lg" data-cat="community" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600'"
+             alt="Community gathering">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <div class="gallery-item rounded-lg" data-cat="community" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1469471792085-63ef0cd03c2a?w=600'"
+             alt="Helping hands">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <!-- Monastic -->
+      <div class="gallery-item rounded-lg" data-cat="monastic" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600'"
+             alt="Monastic landscape">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <div class="gallery-item rounded-lg" data-cat="monastic" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1476611338391-6f395a0dd82e?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600'"
+             alt="Mountains and peace">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <div class="gallery-item rounded-lg" data-cat="worship" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1470019693664-1d202d2c0907?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600'"
+             alt="Sacred music">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <div class="gallery-item rounded-lg" data-cat="heritage" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1470019693664-1d202d2c0907?w=600'"
+             alt="Ethiopian music tradition">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <div class="gallery-item rounded-lg" data-cat="church" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1519817914152-22d216bb9170?w=600'"
+             alt="Sacred architecture">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+      <div class="gallery-item rounded-lg" data-cat="community" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1469471792085-63ef0cd03c2a?w=600&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600'"
+             alt="Youth community">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2"><circle cx="16" cy="16" r="10"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLightbox()">
+  <button onclick="closeLightbox()" style="position:absolute;top:20px;right:20px;color:white;font-size:2rem;background:none;border:none;cursor:pointer">✕</button>
+  <img id="lightbox-img" src="" alt="Gallery image">
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     ANNOUNCEMENTS
+══════════════════════════════════════════ -->
+<section id="announcements" class="py-20 section-bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <p class="font-cinzel text-gold text-xs tracking-[0.3em] uppercase mb-3">Stay Informed</p>
+      <h2 class="section-title text-4xl md:text-5xl mb-4">Announcements & News</h2>
+      <p class="section-subtitle max-w-xl mx-auto">Latest updates from our growing community and church formation journey.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Announcement 1 -->
+      <div class="ann-card rounded-lg overflow-hidden reveal">
+        <div style="height:160px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1596538405990-05e5e4f5cd54?w=500&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500'"
+               alt="Prayer gathering" class="w-full h-full object-cover">
+        </div>
+        <div class="p-5">
+          <span class="font-cinzel text-gold text-xs tracking-widest uppercase">June 22, 2025</span>
+          <h3 class="font-cinzel text-deep-red font-bold text-sm mt-1 mb-2 uppercase tracking-wide">Community Prayer Gathering</h3>
+          <p class="text-charcoal/70 text-xs leading-relaxed">Join us for our first community prayer gathering as we come together in worship and fellowship to celebrate the formation of Gishen Mariam.</p>
+          <a href="#contact" class="text-gold text-xs font-cinzel uppercase tracking-widest mt-3 inline-block hover:underline">Learn More →</a>
+        </div>
+      </div>
+
+      <!-- Announcement 2 -->
+      <div class="ann-card rounded-lg overflow-hidden reveal" style="transition-delay:0.1s">
+        <div style="height:160px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1469471792085-63ef0cd03c2a?w=500&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500'"
+               alt="Church formation" class="w-full h-full object-cover">
+        </div>
+        <div class="p-5">
+          <span class="font-cinzel text-gold text-xs tracking-widest uppercase">May 15, 2025</span>
+          <h3 class="font-cinzel text-deep-red font-bold text-sm mt-1 mb-2 uppercase tracking-wide">Official Approval Received</h3>
+          <p class="text-charcoal/70 text-xs leading-relaxed">We are blessed to announce that our formation has been officially approved by the greater Ethiopian Orthodox Tewahedo Church in Sacramento.</p>
+          <a href="#history" class="text-gold text-xs font-cinzel uppercase tracking-widest mt-3 inline-block hover:underline">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Announcement 3 -->
+      <div class="ann-card rounded-lg overflow-hidden reveal" style="transition-delay:0.2s">
+        <div style="height:160px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=500'"
+               alt="Fundraising" class="w-full h-full object-cover">
+        </div>
+        <div class="p-5">
+          <span class="font-cinzel text-gold text-xs tracking-widest uppercase">April 30, 2025</span>
+          <h3 class="font-cinzel text-deep-red font-bold text-sm mt-1 mb-2 uppercase tracking-wide">Fundraising Campaign Launch</h3>
+          <p class="text-charcoal/70 text-xs leading-relaxed">Our founding campaign has launched! We are calling on the faithful to help us build this sacred home for our community in Northern California.</p>
+          <a href="#donate" class="text-gold text-xs font-cinzel uppercase tracking-widest mt-3 inline-block hover:underline">Give Now →</a>
+        </div>
+      </div>
+
+      <!-- Announcement 4 -->
+      <div class="ann-card rounded-lg overflow-hidden reveal" style="transition-delay:0.3s">
+        <div style="height:160px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1476611338391-6f395a0dd82e?w=500'"
+               alt="Volunteer" class="w-full h-full object-cover">
+        </div>
+        <div class="p-5">
+          <span class="font-cinzel text-gold text-xs tracking-widest uppercase">Ongoing</span>
+          <h3 class="font-cinzel text-deep-red font-bold text-sm mt-1 mb-2 uppercase tracking-wide">Volunteer Opportunities</h3>
+          <p class="text-charcoal/70 text-xs leading-relaxed">We welcome volunteers with skills in construction, administration, outreach, and ministry. Join us and help build something eternal.</p>
+          <a href="#contact" class="text-gold text-xs font-cinzel uppercase tracking-widest mt-3 inline-block hover:underline">Get Involved →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════ -->
+<section class="py-20" style="background:var(--ivory-dark)">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <p class="font-cinzel text-gold text-xs tracking-[0.3em] uppercase mb-3">From Our Community</p>
+      <h2 class="section-title text-4xl mb-4">Voices of the Faithful</h2>
+    </div>
+
+    <div class="relative overflow-hidden reveal">
+      <div class="testimonial-track" id="testimonial-track">
+        <!-- Slide 1 -->
+        <div class="testimonial-slide px-4">
+          <div class="bg-white rounded-xl p-8 sacred-border shadow-sm max-w-2xl mx-auto text-center">
+            <div class="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 border-2 border-gold">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80"
+                   onerror="this.src='https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=200'"
+                   alt="Donor" class="w-full h-full object-cover">
+            </div>
+            <p class="font-cormorant text-xl italic text-charcoal/80 leading-relaxed mb-5">
+              "When I heard that an Ethiopian Orthodox monastery was being established in California, I knew I had to be a founding supporter. This is more than a church — it is a home for our heritage."
+            </p>
+            <div class="text-gold font-cinzel text-sm font-bold">Abebe T.</div>
+            <div class="text-charcoal/50 text-xs mt-1">Founding Donor, Sacramento, CA</div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="testimonial-slide px-4">
+          <div class="bg-white rounded-xl p-8 sacred-border shadow-sm max-w-2xl mx-auto text-center">
+            <div class="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 border-2 border-gold">
+              <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=200&q=80"
+                   onerror="this.src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200'"
+                   alt="Community member" class="w-full h-full object-cover">
+            </div>
+            <p class="font-cormorant text-xl italic text-charcoal/80 leading-relaxed mb-5">
+              "Gishen Mariam is answering a deep need in our community. A place of prayer, peace, and cultural preservation for Ethiopian families across Northern California."
+            </p>
+            <div class="text-gold font-cinzel text-sm font-bold">Sister Miriam H.</div>
+            <div class="text-charcoal/50 text-xs mt-1">Community Member, Redding, CA</div>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="testimonial-slide px-4">
+          <div class="bg-white rounded-xl p-8 sacred-border shadow-sm max-w-2xl mx-auto text-center">
+            <div class="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 border-2 border-gold">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80"
+                   onerror="this.src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200'"
+                   alt="Supporter" class="w-full h-full object-cover">
+            </div>
+            <p class="font-cormorant text-xl italic text-charcoal/80 leading-relaxed mb-5">
+              "The Ethiopian Orthodox Tewahedo Church carries one of the oldest and most beautiful Christian traditions. I am honored to help Gishen Mariam take root in California."
+            </p>
+            <div class="text-gold font-cinzel text-sm font-bold">Dr. Samuel W.</div>
+            <div class="text-charcoal/50 text-xs mt-1">Patron Donor, San Francisco, CA</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial controls -->
+      <div class="flex justify-center gap-3 mt-6">
+        <button onclick="setTestimonial(0)" class="testimonial-dot w-2 h-2 rounded-full bg-gold" id="dot-0"></button>
+        <button onclick="setTestimonial(1)" class="testimonial-dot w-2 h-2 rounded-full bg-gold/30" id="dot-1"></button>
+        <button onclick="setTestimonial(2)" class="testimonial-dot w-2 h-2 rounded-full bg-gold/30" id="dot-2"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     COMMUNITY IMPACT / COUNTERS
+══════════════════════════════════════════ -->
+<section class="py-20" style="background:linear-gradient(135deg,#1F6B4D 0%,#1B3B6F 100%)">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <p class="font-cinzel text-gold text-xs tracking-[0.3em] uppercase mb-3">Our Growing Impact</p>
+      <h2 class="font-cinzel text-ivory text-4xl font-bold mb-4">Community in Numbers</h2>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <div class="text-center reveal">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=300&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=300'"
+             alt="Families" class="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-gold/60">
+        <div class="counter-num" data-target="142">0</div>
+        <div class="text-ivory/70 text-sm font-inter mt-1">Families Supported</div>
+      </div>
+      <div class="text-center reveal" style="transition-delay:0.1s">
+        <img src="https://images.unsplash.com/photo-1469471792085-63ef0cd03c2a?w=300&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300'"
+             alt="Volunteers" class="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-gold/60">
+        <div class="counter-num" data-target="284">0</div>
+        <div class="text-ivory/70 text-sm font-inter mt-1">Founding Donors</div>
+      </div>
+      <div class="text-center reveal" style="transition-delay:0.2s">
+        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=300&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=300'"
+             alt="Community" class="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-gold/60">
+        <div class="counter-num" data-target="58">0</div>
+        <div class="text-ivory/70 text-sm font-inter mt-1">Volunteers Active</div>
+      </div>
+      <div class="text-center reveal" style="transition-delay:0.3s">
+        <img src="https://images.unsplash.com/photo-1476611338391-6f395a0dd82e?w=300&q=80"
+             onerror="this.src='https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=300'"
+             alt="Prayer" class="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-gold/60">
+        <div class="counter-num" data-target="1700">0</div>
+        <div class="text-ivory/70 text-sm font-inter mt-1">Years of Tradition</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CTA SECTION
+══════════════════════════════════════════ -->
+<section class="py-24 relative overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=1600&q=80"
+         onerror="this.src='https://images.unsplash.com/photo-1519817914152-22d216bb9170?w=1600'"
+         alt="Sacred" class="w-full h-full object-cover">
+    <div class="absolute inset-0" style="background:linear-gradient(160deg,rgba(122,31,31,0.88),rgba(27,59,111,0.88))"></div>
+  </div>
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center reveal">
+    <div class="flex justify-center mb-6">
+      <svg width="48" height="48" viewBox="0 0 80 80" fill="none">
+        <rect x="34" y="2" width="12" height="76" rx="3" fill="#C9A227"/>
+        <rect x="2" y="28" width="76" height="12" rx="3" fill="#C9A227"/>
+      </svg>
+    </div>
+    <h2 class="font-cinzel text-ivory text-4xl md:text-5xl font-bold mb-6">
+      Join the Founding Supporters<br>of <span class="text-gold">Gishen Mariam</span>
+    </h2>
+    <p class="font-cormorant text-ivory/85 text-xl italic mb-10 max-w-2xl mx-auto">
+      Your generosity today will echo through generations. Be among those who answered the call to build this sacred home in Northern California.
+    </p>
+    <a href="#donate" class="donate-btn inline-block px-14 py-5 rounded-lg text-lg uppercase tracking-widest">
+      Make a Gift Today ✦
+    </a>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════ -->
+<section id="contact" class="py-20 section-bg-ivory">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <p class="font-cinzel text-gold text-xs tracking-[0.3em] uppercase mb-3">Reach Out</p>
+      <h2 class="section-title text-4xl md:text-5xl mb-4">Contact Us</h2>
+      <p class="section-subtitle max-w-xl mx-auto">We welcome questions, prayer requests, partnership inquiries, and all who wish to learn more about our sacred community.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <!-- Contact form -->
+      <div class="bg-white rounded-xl p-8 sacred-border shadow-sm reveal">
+        <h3 class="font-cinzel text-deep-red text-xl font-bold mb-6 uppercase tracking-wide">Send a Message</h3>
+        <div class="space-y-4">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="font-cinzel text-xs uppercase tracking-widest text-charcoal/60 mb-1 block">First Name</label>
+              <input id="fname" type="text" class="w-full border border-gold/30 rounded px-4 py-3 text-sm focus:outline-none focus:border-gold transition-colors" placeholder="Your first name">
+            </div>
+            <div>
+              <label class="font-cinzel text-xs uppercase tracking-widest text-charcoal/60 mb-1 block">Last Name</label>
+              <input id="lname" type="text" class="w-full border border-gold/30 rounded px-4 py-3 text-sm focus:outline-none focus:border-gold transition-colors" placeholder="Your last name">
+            </div>
+          </div>
+          <div>
+            <label class="font-cinzel text-xs uppercase tracking-widest text-charcoal/60 mb-1 block">Email Address</label>
+            <input id="email" type="email" class="w-full border border-gold/30 rounded px-4 py-3 text-sm focus:outline-none focus:border-gold transition-colors" placeholder="your@email.com">
+            <p id="email-err" class="text-red-500 text-xs mt-1 hidden">Please enter a valid email address.</p>
+          </div>
+          <div>
+            <label class="font-cinzel text-xs uppercase tracking-widest text-charcoal/60 mb-1 block">Subject</label>
+            <select id="subject" class="w-full border border-gold/30 rounded px-4 py-3 text-sm focus:outline-none focus:border-gold transition-colors bg-white">
+              <option>General Inquiry</option>
+              <option>Donation / Giving</option>
+              <option>Volunteer</option>
+              <option>Partnership</option>
+              <option>Prayer Request</option>
+              <option>Media / Press</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-cinzel text-xs uppercase tracking-widest text-charcoal/60 mb-1 block">Message</label>
+            <textarea id="message" rows="4" class="w-full border border-gold/30 rounded px-4 py-3 text-sm focus:outline-none focus:border-gold transition-colors resize-none" placeholder="How can we help you?"></textarea>
+          </div>
+          <button onclick="submitForm()" class="donate-btn w-full py-4 rounded text-sm uppercase tracking-widest">Send Message</button>
+          <p id="form-success" class="text-emerald text-sm text-center hidden font-cinzel">✦ Thank you! Your message has been received.</p>
+        </div>
+      </div>
+
+      <!-- Contact info + map placeholder -->
+      <div class="reveal">
+        <div class="rounded-lg overflow-hidden mb-6" style="height:240px;">
+          <img src="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=800&q=80"
+               onerror="this.src='https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800'"
+               alt="Shasta County landscape" class="w-full h-full object-cover">
+        </div>
+
+        <div class="space-y-5">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(201,162,39,0.12)">
+              <svg width="18" height="18" fill="none" stroke="#C9A227" stroke-width="2"><path d="M9 1C5.686 1 3 3.686 3 7c0 4.5 6 10 6 10s6-5.5 6-10c0-3.314-2.686-6-6-6z"/><circle cx="9" cy="7" r="2"/></svg>
+            </div>
+            <div>
+              <div class="font-cinzel text-xs uppercase tracking-widest text-charcoal/50 mb-1">Location</div>
+              <div class="text-charcoal/80 text-sm">Shasta County, California<br><span class="text-charcoal/50">Full address available upon inquiry</span></div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(201,162,39,0.12)">
+              <svg width="18" height="18" fill="none" stroke="#C9A227" stroke-width="2"><path d="M4 4h14v12H4z"/><path d="M4 4l7 8 7-8"/></svg>
+            </div>
+            <div>
+              <div class="font-cinzel text-xs uppercase tracking-widest text-charcoal/50 mb-1">Email</div>
+              <div class="text-charcoal/80 text-sm">info@gishenmariam.org</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(201,162,39,0.12)">
+              <svg width="18" height="18" fill="none" stroke="#C9A227" stroke-width="2"><path d="M2 3a2 2 0 012-2h12a2 2 0 012 2v14l-4-4H4a2 2 0 01-2-2V3z"/></svg>
+            </div>
+            <div>
+              <div class="font-cinzel text-xs uppercase tracking-widest text-charcoal/50 mb-1">Social Media</div>
+              <div class="flex gap-3 mt-1">
+                <a href="#" class="text-gold hover:text-gold-dark font-cinzel text-xs uppercase tracking-wide">Facebook</a>
+                <a href="#" class="text-gold hover:text-gold-dark font-cinzel text-xs uppercase tracking-wide">Instagram</a>
+                <a href="#" class="text-gold hover:text-gold-dark font-cinzel text-xs uppercase tracking-wide">YouTube</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map placeholder styled -->
+        <div class="mt-6 rounded-lg overflow-hidden border border-gold/30" style="height:180px;background:linear-gradient(135deg,#EDE7D9,#D4C89A);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+          <svg width="32" height="32" fill="none" stroke="#C9A227" stroke-width="2"><path d="M16 2C10.477 2 6 6.477 6 12c0 8 10 18 10 18s10-10 10-18c0-5.523-4.477-10-10-10z"/><circle cx="16" cy="12" r="4"/></svg>
+          <div class="font-cinzel text-charcoal/50 text-xs uppercase tracking-widest">Shasta County, California</div>
+          <div class="text-charcoal/30 text-xs">Map coming soon</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="relative overflow-hidden" style="background:linear-gradient(160deg,#1B3B6F 0%,#0f1f40 100%)">
+  <!-- Pattern overlay -->
+  <div class="absolute inset-0 opacity-5" style="background-image:repeating-linear-gradient(45deg,#C9A227 0,#C9A227 1px,transparent 1px,transparent 20px),repeating-linear-gradient(-45deg,#C9A227 0,#C9A227 1px,transparent 1px,transparent 20px)"></div>
+
+  <!-- Gold top border -->
+  <div style="height:3px;background:linear-gradient(90deg,transparent,#C9A227,transparent)"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+      <!-- Brand -->
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
+            <rect x="34" y="2" width="12" height="76" rx="3" fill="#C9A227"/>
+            <rect x="2" y="28" width="76" height="12" rx="3" fill="#C9A227"/>
+            <rect x="28" y="16" width="8" height="8" rx="2" fill="#C9A227" opacity="0.6"/>
+            <rect x="44" y="16" width="8" height="8" rx="2" fill="#C9A227" opacity="0.6"/>
+          </svg>
+          <div>
+            <div class="font-cinzel text-gold text-base font-bold tracking-widest">GISHEN MARIAM</div>
+            <div class="text-ivory/50 text-xs tracking-wide">Ethiopian Orthodox Tewahedo</div>
+          </div>
+        </div>
+        <p class="text-ivory/60 text-sm leading-relaxed max-w-xs">
+          A sacred monastery and church in Shasta County, California — rooted in over 1,700 years of Ethiopian Orthodox Christian tradition, approved by the greater church in Sacramento.
+        </p>
+        <a href="#donate" class="donate-btn inline-block mt-6 px-8 py-3 rounded text-sm uppercase tracking-widest">Donate Now</a>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h4 class="font-cinzel text-gold text-xs uppercase tracking-widest mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#about" class="text-ivory/60 text-sm hover:text-gold transition-colors">About Us</a></li>
+          <li><a href="#mission" class="text-ivory/60 text-sm hover:text-gold transition-colors">Our Mission</a></li>
+          <li><a href="#history" class="text-ivory/60 text-sm hover:text-gold transition-colors">History</a></li>
+          <li><a href="#gallery" class="text-ivory/60 text-sm hover:text-gold transition-colors">Gallery</a></li>
+          <li><a href="#donate" class="text-ivory/60 text-sm hover:text-gold transition-colors">Donate</a></li>
+          <li><a href="#contact" class="text-ivory/60 text-sm hover:text-gold transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="font-cinzel text-gold text-xs uppercase tracking-widest mb-4">Connect</h4>
+        <p class="text-ivory/60 text-sm mb-2">info@gishenmariam.org</p>
+        <p class="text-ivory/60 text-sm mb-4">Shasta County, California</p>
+        <div class="flex gap-3">
+          <a href="#" class="w-9 h-9 rounded border border-gold/30 flex items-center justify-center text-gold/60 hover:text-gold hover:border-gold transition-colors">f</a>
+          <a href="#" class="w-9 h-9 rounded border border-gold/30 flex items-center justify-center text-gold/60 hover:text-gold hover:border-gold transition-colors">in</a>
+          <a href="#" class="w-9 h-9 rounded border border-gold/30 flex items-center justify-center text-gold/60 hover:text-gold hover:border-gold transition-colors">▶</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gold divider -->
+    <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,39,0.4),transparent)" class="mb-8"></div>
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-ivory/40 text-xs font-inter">
+        © 2025 Gishen Mariam Ethiopian Orthodox Tewahedo Monastery & Church. All rights reserved.
+      </p>
+      <div class="flex items-center gap-2 text-gold/40 text-xs">
+        <span>✦</span>
+        <span class="font-cinzel tracking-widest">ጌሼን ማርያም</span>
+        <span>✦</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+// ── Navbar scroll ──
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', scrollY > 60);
+});
+
+// ── Mobile menu ──
+function toggleMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+
+// ── Hero zoom ──
+setTimeout(() => document.getElementById('hero-bg').classList.add('zoomed'), 100);
+
+// ── Scroll reveal ──
+const revealEls = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealObs.observe(el));
+
+// ── Progress bar animate ──
+const progObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { document.getElementById('progress-bar').style.width = '37%'; }
+  });
+}, { threshold: 0.4 });
+const progSection = document.getElementById('donate');
+if (progSection) progObs.observe(progSection);
+
+// ── Donation tabs ──
+function switchTab(btn, tab) {
+  document.querySelectorAll('.donation-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ── Amount selection ──
+function selectAmount(card, amt) {
+  document.querySelectorAll('.amount-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  document.getElementById('custom-input').classList.toggle('hidden', amt !== 'custom');
+}
+
+// ── Donate button ──
+function handleDonate() {
+  alert('Thank you for your generous spirit! To complete your donation, please contact us at info@gishenmariam.org or call our office. Your gift supports the sacred mission of Gishen Mariam.');
+}
+
+// ── Gallery filter ──
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.gallery-filter').forEach(b => {
+    b.classList.remove('active', 'text-deep-red', 'border-gold/40');
+    b.classList.add('text-charcoal/60', 'border-gold/20');
+  });
+  btn.classList.add('active', 'text-deep-red', 'border-gold/40');
+  btn.classList.remove('text-charcoal/60', 'border-gold/20');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    const show = cat === 'all' || item.dataset.cat === cat;
+    item.style.display = show ? '' : 'none';
+  });
+}
+
+// ── Lightbox ──
+function openLightbox(item) {
+  const src = item.querySelector('img').src;
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// ── Testimonial slider ──
+let currentSlide = 0;
+const track = document.getElementById('testimonial-track');
+function setTestimonial(idx) {
+  currentSlide = idx;
+  track.style.transform = `translateX(-${idx * 100}%)`;
+  document.querySelectorAll('.testimonial-dot').forEach((d, i) => {
+    d.style.opacity = i === idx ? '1' : '0.3';
+  });
+}
+setInterval(() => setTestimonial((currentSlide + 1) % 3), 5000);
+
+// ── Counter animation ──
+function animateCounters() {
+  document.querySelectorAll('.counter-num').forEach(el => {
+    const target = parseInt(el.dataset.target);
+    let current = 0;
+    const step = target / 60;
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = Math.round(current).toLocaleString();
+      if (current >= target) clearInterval(timer);
+    }, 25);
+  });
+}
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { animateCounters(); counterObs.disconnect(); } });
+}, { threshold: 0.3 });
+const counterSection = document.querySelector('.counter-num');
+if (counterSection) counterObs.observe(counterSection);
+
+// ── Contact form ──
+function submitForm() {
+  const email = document.getElementById('email').value;
+  const emailErr = document.getElementById('email-err');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    emailErr.classList.remove('hidden');
+    return;
+  }
+  emailErr.classList.add('hidden');
+  document.getElementById('form-success').classList.remove('hidden');
+  ['fname','lname','email','message'].forEach(id => { document.getElementById(id).value = ''; });
+  setTimeout(() => document.getElementById('form-success').classList.add('hidden'), 5000);
+}
+</script>
+</body>
+</html>
